@@ -1,10 +1,28 @@
-import { Button } from "@/components/ui/button"
+"use client";
+
+import { useMutation, useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
+import { Button } from "@/components/ui/button";
+
 
 const page = () => {
+  const projects = useQuery(api.projects.get);
+  const createProcject = useMutation(api.projects.create);
+
   return (
-    <Button>
-      Click me
+    <div className="flex flex-col gap-2 p-4">
+      <Button onClick={() => createProcject({
+        name: "New project123"
+      })}>
+        Add new
       </Button>
+      {projects?.map((project) => (
+        <div className="border rounded p-2 flex flex-col" key={project._id}>
+          <p>{project.name}</p>
+          <p>Owner Id: {project.ownerId}</p>
+        </div>
+      ))}
+    </div>
   )
 }
 

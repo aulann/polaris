@@ -21,4 +21,4 @@ Sentry.init({
     Sentry.vercelAIIntegration,
     Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
   ],
-});
+}); 

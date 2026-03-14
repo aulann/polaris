@@ -8,6 +8,9 @@ import { customTheme } from "../extensions/theme";
 import { getLanguageExtension } from "../extensions/language-extension";
 import { minimap } from "../extensions/minimap";
 import { customSetup } from "../extensions/custom-setup";
+import { suggestion } from "../extensions/suggestion";
+import { quickEdit } from "../extensions/guick-edit";
+import { selectionTooltip } from "../extensions/selection-tooltip";
 
 interface Props {
   fileName: string;
@@ -38,6 +41,9 @@ export const CodeEditor = ({
         customTheme,
         customSetup,
         languageExtension,
+        suggestion(fileName),
+        quickEdit(fileName),
+        selectionTooltip(),
         keymap.of([indentWithTab]),
         minimap(),
         indentationMarkers(),

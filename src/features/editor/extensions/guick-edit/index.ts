@@ -86,7 +86,7 @@ const createQuickEditTooltip = (state: EditorState): readonly Tooltip[] => {
         const submitButton = document.createElement("button");
         submitButton.type = "submit";
         submitButton.textContent = "Submit";
-        cancelButton.className =
+        submitButton.className =
           "font-sans p-1 px-2 text-muted-foreground hover:text-foreground hover:bg-foreground/10 rounded-sm";
 
         form.onsubmit = async (e) => {
